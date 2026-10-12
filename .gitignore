@@ -1,0 +1,38 @@
+
+# Xschem temporary and backup files
+*.sch~
+*.sym~
+*.bak
+*.swp
+*.swo
+
+# ngspice simulation outputs
+*.raw
+*.rawspice
+*.log
+*.out
+*.tr0
+*.ac0
+*.sw0
+
+# Magic temporary files
+*.ext
+*.ext2
+*.nodes
+*.sim
+*.tmp
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Local PDK installations
+pdk/
+pdks/
+sky130A/
