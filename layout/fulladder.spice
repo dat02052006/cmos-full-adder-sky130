@@ -1,0 +1,42 @@
+** sch_path: /home/dat02/projects/cmos-full-adder-sky130/schematic/fulladder.sch
+.subckt fulladder VDD GND Sum A B Cin Cout
+*.PININFO A:I B:I Cin:I Cout:O Sum:O VDD:I GND:I
+XM1 net1 A net2 GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.84 nf=1
+XM2 net1 A VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.295 nf=1
+XM3 net1 B VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.295 nf=1
+XM4 net2 B GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.84 nf=1
+XM5 net3 A net4 GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.57 nf=1
+XM6 net3 A VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.88 nf=1
+XM7 net3 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.88 nf=1
+XM8 net4 net1 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.57 nf=1
+XM9 net5 net1 net6 GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.57 nf=1
+XM10 net5 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.88 nf=1
+XM11 net5 B VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.88 nf=1
+XM12 net6 B GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.57 nf=1
+XM13 net7 net3 net8 GND sky130_fd_pr__nfet_01v8 L=0.15 W=1.165 nf=1
+XM14 net7 net3 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.795 nf=1
+XM15 net7 net5 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.795 nf=1
+XM16 net8 net5 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1.165 nf=1
+XM17 net9 net7 net10 GND sky130_fd_pr__nfet_01v8 L=0.15 W=1.19 nf=1
+XM18 net9 net7 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.83 nf=1
+XM19 net9 Cin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.83 nf=1
+XM20 net10 Cin GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1.19 nf=1
+XM21 net11 net7 net12 GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.81 nf=1
+XM22 net11 net7 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.245 nf=1
+XM23 net11 net9 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.245 nf=1
+XM24 net12 net9 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.81 nf=1
+XM25 net13 net9 net14 GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.81 nf=1
+XM26 net13 net9 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.245 nf=1
+XM27 net13 Cin VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.245 nf=1
+XM28 net14 Cin GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.81 nf=1
+XM29 Sum net11 net15 GND sky130_fd_pr__nfet_01v8 L=0.15 W=1.645 nf=1
+XM30 Sum net11 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=2.54 nf=1
+XM31 Sum net13 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=2.54 nf=1
+XM32 net15 net13 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1.645 nf=1
+XM33 Cout net9 net16 GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.81 nf=1
+XM34 Cout net9 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.245 nf=1
+XM35 Cout net1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.245 nf=1
+XM36 net16 net1 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.81 nf=1
+.ends
+.GLOBAL GND
+.GLOBAL VDD

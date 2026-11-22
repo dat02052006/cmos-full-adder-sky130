@@ -1,0 +1,41 @@
+* NGSPICE file created from TOP_FLAT.ext - technology: sky130A
+
+.subckt TOP_FLAT B A Cin Sum Cout VDD GND
+X0 VDD B a_106_n774# VDD sky130_fd_pr__pfet_01v8 ad=0.20458 pd=1.635 as=0.45325 ps=1.995 w=1.295 l=0.15
+X1 VDD a_457_n67# a_1127_n67# VDD sky130_fd_pr__pfet_01v8 ad=0.47567 pd=4.12 as=0.62825 ps=2.495 w=1.795 l=0.15
+X2 VDD a_1127_n67# a_1799_n67# VDD sky130_fd_pr__pfet_01v8 ad=0.32993 pd=3.02 as=0.43575 ps=1.945 w=1.245 l=0.15
+X3 a_1127_n839# a_734_n720# GND GND sky130_fd_pr__nfet_01v8 ad=0.40775 pd=1.865 as=0.17572 ps=1.505 w=1.165 l=0.15
+X4 a_1531_n844# a_1127_n67# a_1404_n844# GND sky130_fd_pr__nfet_01v8 ad=0.4165 pd=1.89 as=0.57715 ps=3.35 w=1.19 l=0.15
+X5 GND B a_859_n720# GND sky130_fd_pr__nfet_01v8 ad=0.17572 pd=1.505 as=0.1995 ps=1.27 w=0.57 l=0.15
+X6 VDD Cin a_2116_n768# VDD sky130_fd_pr__pfet_01v8 ad=0.38322 pd=2.88 as=0.30812 ps=1.74 w=1.245 l=0.15
+X7 a_2199_n768# a_1404_n844# a_2116_n768# GND sky130_fd_pr__nfet_01v8 ad=0.20048 pd=1.305 as=0.21465 ps=2.15 w=0.81 l=0.15
+X8 Cout a_1404_n844# a_2786_n768# GND sky130_fd_pr__nfet_01v8 ad=0.21465 pd=2.15 as=0.19845 ps=1.3 w=0.81 l=0.15
+X9 a_1799_n67# a_1127_n67# a_1799_n768# GND sky130_fd_pr__nfet_01v8 ad=0.37665 pd=2.55 as=0.2835 ps=1.51 w=0.81 l=0.15
+X10 Sum a_1799_n67# a_2426_n935# GND sky130_fd_pr__nfet_01v8 ad=0.43593 pd=3.82 as=0.57575 ps=2.345 w=1.645 l=0.15
+X11 a_457_n67# a_106_n774# VDD VDD sky130_fd_pr__pfet_01v8 ad=0.2156 pd=1.37 as=0.20458 ps=1.635 w=0.88 l=0.15
+X12 a_457_n67# A a_457_n720# GND sky130_fd_pr__nfet_01v8 ad=0.27075 pd=2.09 as=0.13965 ps=1.06 w=0.57 l=0.15
+X13 GND Cin a_2199_n768# GND sky130_fd_pr__nfet_01v8 ad=0.24833 pd=1.985 as=0.20048 ps=1.305 w=0.81 l=0.15
+X14 Cout a_106_n774# VDD VDD sky130_fd_pr__pfet_01v8 ad=0.30503 pd=1.735 as=0.32993 ps=3.02 w=1.245 l=0.15
+X15 a_189_n774# A a_106_n774# GND sky130_fd_pr__nfet_01v8 ad=0.294 pd=1.54 as=0.2226 ps=2.21 w=0.84 l=0.15
+X16 VDD B a_734_n720# VDD sky130_fd_pr__pfet_01v8 ad=0.27082 pd=2.135 as=0.308 ps=1.58 w=0.88 l=0.15
+X17 a_2116_n768# a_1404_n844# VDD VDD sky130_fd_pr__pfet_01v8 ad=0.30812 pd=1.74 as=0.32993 ps=3.02 w=1.245 l=0.15
+X18 VDD Cin a_1404_n844# VDD sky130_fd_pr__pfet_01v8 ad=0.28915 pd=2.17 as=0.6405 ps=2.53 w=1.83 l=0.15
+X19 a_859_n720# a_106_n774# a_734_n720# GND sky130_fd_pr__nfet_01v8 ad=0.1995 pd=1.27 as=0.27075 ps=2.09 w=0.57 l=0.15
+X20 a_734_n720# a_106_n774# VDD VDD sky130_fd_pr__pfet_01v8 ad=0.308 pd=1.58 as=0.2332 ps=2.29 w=0.88 l=0.15
+X21 Sum a_2116_n768# VDD VDD sky130_fd_pr__pfet_01v8 ad=0.889 pd=3.24 as=0.38322 ps=2.88 w=2.54 l=0.15
+X22 a_1127_n67# a_457_n67# a_1127_n839# GND sky130_fd_pr__nfet_01v8 ad=0.30872 pd=2.86 as=0.40775 ps=1.865 w=1.165 l=0.15
+X23 a_1404_n844# a_1127_n67# VDD VDD sky130_fd_pr__pfet_01v8 ad=0.6405 pd=2.53 as=0.86925 ps=4.61 w=1.83 l=0.15
+X24 VDD a_1799_n67# Sum VDD sky130_fd_pr__pfet_01v8 ad=0.6731 pd=5.61 as=0.889 ps=3.24 w=2.54 l=0.15
+X25 GND B a_189_n774# GND sky130_fd_pr__nfet_01v8 ad=0.13268 pd=1.18 as=0.294 ps=1.54 w=0.84 l=0.15
+X26 GND Cin a_1531_n844# GND sky130_fd_pr__nfet_01v8 ad=0.18805 pd=1.53 as=0.4165 ps=1.89 w=1.19 l=0.15
+X27 a_106_n774# A VDD VDD sky130_fd_pr__pfet_01v8 ad=0.45325 pd=1.995 as=0.34317 ps=3.12 w=1.295 l=0.15
+X28 a_1127_n67# a_734_n720# VDD VDD sky130_fd_pr__pfet_01v8 ad=0.62825 pd=2.495 as=0.27082 ps=2.135 w=1.795 l=0.15
+X29 a_2786_n768# a_106_n774# GND GND sky130_fd_pr__nfet_01v8 ad=0.19845 pd=1.3 as=0.21465 ps=2.15 w=0.81 l=0.15
+X30 a_1799_n67# a_1404_n844# VDD VDD sky130_fd_pr__pfet_01v8 ad=0.43575 pd=1.945 as=0.28915 ps=2.17 w=1.245 l=0.15
+X31 a_1799_n768# a_1404_n844# GND GND sky130_fd_pr__nfet_01v8 ad=0.2835 pd=1.51 as=0.18805 ps=1.53 w=0.81 l=0.15
+X32 a_2426_n935# a_2116_n768# GND GND sky130_fd_pr__nfet_01v8 ad=0.57575 pd=2.345 as=0.24833 ps=1.985 w=1.645 l=0.15
+X33 VDD A a_457_n67# VDD sky130_fd_pr__pfet_01v8 ad=0.2332 pd=2.29 as=0.2156 ps=1.37 w=0.88 l=0.15
+X34 VDD a_1404_n844# Cout VDD sky130_fd_pr__pfet_01v8 ad=0.32993 pd=3.02 as=0.30503 ps=1.735 w=1.245 l=0.15
+X35 a_457_n720# a_106_n774# GND GND sky130_fd_pr__nfet_01v8 ad=0.13965 pd=1.06 as=0.13268 ps=1.18 w=0.57 l=0.15
+.ends
+
