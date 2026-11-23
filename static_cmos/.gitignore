@@ -1,4 +1,4 @@
-
+*:Zone.Identifier
 # Xschem temporary and backup files
 *.sch~
 *.sym~
