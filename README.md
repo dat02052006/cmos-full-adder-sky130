@@ -1,30 +1,30 @@
-# Thiết kế, Tối ưu và Đánh giá CMOS Full Adder 1-bit (SKY130 PDK)
+# Design, Optimization, and Evaluation of a 1-Bit CMOS Full Adder (SKY130 PDK)
 
-Dự án thực hiện thiết kế ở mức độ transistor (schematic & physical layout), tối ưu hóa kích thước kênh dẫn ($W/L$), mô phỏng kiểm chứng và phân tích biến thiên PVT cho mạch cộng toàn phần 1-bit (**1-bit Full Adder**) sử dụng công nghệ **SkyWater SKY130 130nm PDK** cùng bộ công cụ EDA mã nguồn mở.
+This project presents the transistor-level schematic design, physical layout, channel sizing ($W/L$) optimization, SPICE verification, and PVT variation analysis of a **1-bit Full Adder** implemented in the **SkyWater SKY130 130nm PDK** using an open-source EDA toolchain.
 
 ---
 
-## 1. Cấu trúc thư mục Repository
+## 1. Repository Structure
 
 ```text
-├── static_cmos/                  # Thiết kế kiến trúc Static Complementary CMOS
-│   ├── schematic/                # Sơ đồ nguyên lý mức transistor (.sch, .sym)
-│   ├── layout/                   # Thiết kế layout vật lý & file trích xuất ký sinh (.mag, .gds, _pex.spice)
-│   ├── testbench/                # Mạch kiểm tra chức năng, đo delay, công suất và PVT
-│   └── logicaleffort/            # Tính toán sizing theo phương pháp Logical Effort
+├── static_cmos/                  # Static Complementary CMOS Full Adder implementation
+│   ├── schematic/                # Transistor-level schematics and symbols (.sch, .sym)
+│   ├── layout/                   # Physical layouts and parasitic extraction netlists (.mag, .gds, _pex.spice)
+│   ├── testbench/                # Functional, delay, power, and PVT testbenches
+│   └── logicaleffort/            # Logical Effort calculations and transistor sizing scripts
 │
-├── transmission_gate/            # Thiết kế kiến trúc Transmission-Gate Full Adder (TGFA)
-│   ├── schematic/                # Sơ đồ nguyên lý mức transistor (XOR, MUX21, Full Adder)
-│   ├── layout/                   # Thiết kế layout vật lý & LVS/DRC/PEX
-│   ├── testbench/                # Mạch kiểm tra và khảo sát PVT
-│   └── logicaleffort/            # Tối ưu kích thước W/L theo mô hình Elmore Delay / Logical Effort
+├── transmission_gate/            # Transmission-Gate Full Adder (TGFA) implementation
+│   ├── schematic/                # Transistor-level schematics (XOR, MUX21, Full Adder)
+│   ├── layout/                   # Physical layouts and DRC/LVS/PEX verification files
+│   ├── testbench/                # Simulation testbenches and PVT corner sweeps
+│   └── logicaleffort/            # W/L sizing optimization based on Elmore Delay / Logical Effort
 │
-└── README.md                     # Tài liệu tổng quan và báo cáo kết quả đánh giá
+└── README.md                     # Project overview and evaluation report
 ```
 
 ---
 
-## 2. Công cụ EDA sử dụng
+## 2. EDA Toolchain
 
 * **PDK:** SkyWater SKY130 (`sky130A` / `open_pdks`)
 * **Schematic Capture:** Xschem
@@ -36,37 +36,37 @@ Dự án thực hiện thiết kế ở mức độ transistor (schematic & phys
 
 ---
 
-## 3. Kiến trúc mạch & Cơ sở lựa chọn kích thước ($W/L$)
+## 3. Circuit Architectures & Transistor Sizing ($W/L$) Rationale
 
-### 3.1. Kiến trúc 1: Static Complementary CMOS Full Adder
-* **Cấu trúc:** Mạng kéo lên (PUN - PMOS) và mạng kéo xuống (PDN - NMOS) đối ngẫu hoàn toàn (Mirror Adder / Standard 28T–36T CMOS), đảm bảo biên độ logic full-swing ($0 \rightarrow V_{DD}$) và độ miễn nhiễu cao.
-* **Lựa chọn kích thước $W/L$:**
-  * Chiều dài kênh dẫn tối thiểu: $L = 0.15\,\mu\text{m}$ (`sky130_fd_pr__nfet_01v8`, `sky130_fd_pr__pfet_01v8`).
-  * Tỷ lệ độ linh động hạt tải $\mu_n / \mu_p \approx 2.5 - 3$, do đó chọn $W_p / W_n \approx [2.5]$ cho các cổng cơ bản để cân bằng thời gian chuyển mạch ($t_{pLH} \approx t_{pHL}$).
-  * Áp dụng phương pháp **Logical Effort** để định cỡ các tầng transistor mắc nối tiếp (stack) trên đường truyền nhớ $C_{in} \rightarrow C_{out}$ nhằm giảm điện trở tương đương và tối ưu trễ.
+### 3.1. Architecture 1: Static Complementary CMOS Full Adder
+* **Topology:** Fully complementary pull-up (PMOS) and pull-down (NMOS) networks (Mirror Adder / Standard 28T–36T CMOS), ensuring full-swing rail-to-rail output ($0 \rightarrow V_{DD}$) and high noise margins.
+* **Transistor Sizing ($W/L$):**
+  * Minimum channel length: $L = 0.15\,\mu\text{m}$ (`sky130_fd_pr__nfet_01v8`, `sky130_fd_pr__pfet_01v8`).
+  * Due to the carrier mobility ratio ($\mu_n / \mu_p \approx 2.5 - 3$), a sizing ratio of $W_p / W_n \approx [2.5]$ is selected for reference inverters to equalize rise and fall propagation delays ($t_{pLH} \approx t_{pHL}$).
+  * **Logical Effort** methodology is applied to size stacked transistors along the critical carry chain ($C_{in} \rightarrow C_{out}$) to minimize effective on-resistance and propagation delay.
 
-### 3.2. Kiến trúc 2: Transmission-Gate Full Adder (TGFA)
-* **Cấu trúc:** Sử dụng các cặp cổng truyền dẫn CMOS (NMOS + PMOS mắc song song) kết hợp bộ đảo để tạo khối `XOR/XNOR` và bộ dồn kênh `MUX 2:1` cho ngõ ra `Sum` và `Cout`.
-* **Lựa chọn kích thước $W/L$:**
-  * Sử dụng $L = 0.15\,\mu\text{m}$ cho toàn bộ transistor.
-  * Tối ưu hóa kích thước $W$ dựa trên mô hình **Elmore Delay** nhằm cân bằng giữa điện trở dẫn $R_{on}$ của cổng truyền và điện dung ký sinh tại các nút trung gian, đồng thời đảm bảo khả năng lái tải ở ngõ ra.
+### 3.2. Architecture 2: Transmission-Gate Full Adder (TGFA)
+* **Topology:** Utilizes complementary CMOS transmission gates (parallel NMOS and PMOS pairs) combined with inverters to build `XOR/XNOR` stages and `2:1 Multiplexers` generating `Sum` and `Cout`.
+* **Transistor Sizing ($W/L$):**
+  * Minimum channel length $L = 0.15\,\mu\text{m}$ is used across all devices.
+  * Transistor widths ($W$) are optimized using the **Elmore Delay** model to balance the transmission gate on-resistance ($R_{on}$) against internal parasitic capacitances while preserving output driving strength.
 
-| Thành phần / Tầng mạch | Static CMOS ($W_n / W_p$) | Transmission-Gate ($W_n / W_p$) | Ghi chú |
+| Cell / Circuit Stage | Static CMOS ($W_n / W_p$) | Transmission-Gate ($W_n / W_p$) | Notes |
 | :--- | :---: | :---: | :--- |
-| Inverter chuẩn | `[...]` $\mu\text{m}$ / `[...]` $\mu\text{m}$ | `[...]` $\mu\text{m}$ / `[...]` $\mu\text{m}$ | $L = 0.15\,\mu\text{m}$ |
-| Cổng tạo `Sum` | `[...]` $\mu\text{m}$ / `[...]` $\mu\text{m}$ | `[...]` $\mu\text{m}$ / `[...]` $\mu\text{m}$ | Tối ưu đối xứng |
-| Cổng tạo `Cout` | `[...]` $\mu\text{m}$ / `[...]` $\mu\text{m}$ | `[...]` $\mu\text{m}$ / `[...]` $\mu\text{m}$ | Tối ưu đường carry |
+| Reference Inverter | `[...]` $\mu\text{m}$ / `[...]` $\mu\text{m}$ | `[...]` $\mu\text{m}$ / `[...]` $\mu\text{m}$ | $L = 0.15\,\mu\text{m}$ |
+| `Sum` Generation Stage | `[...]` $\mu\text{m}$ / `[...]` $\mu\text{m}$ | `[...]` $\mu\text{m}$ / `[...]` $\mu\text{m}$ | Symmetric transition sizing |
+| `Cout` Generation Stage | `[...]` $\mu\text{m}$ / `[...]` $\mu\text{m}$ | `[...]` $\mu\text{m}$ / `[...]` $\mu\text{m}$ | Optimized carry path |
 
 ---
 
-## 4. Phân tích biến thiên PVT (Process - Voltage - Temperature)
+## 4. PVT (Process - Voltage - Temperature) Variation Analysis
 
-Mạch được kiểm chứng độ tin cậy sau trích xuất ký sinh (Post-Layout PEX) trên các điều kiện khắc nghiệt của SKY130:
+Post-layout parasitic-extracted (PEX) netlists are verified across standard SKY130 operating corners:
 * **Process Corners:** `tt` (Typical-Typical), `ff` (Fast-Fast), `ss` (Slow-Slow), `sf` (Slow-Fast), `fs` (Fast-Slow).
-* **Điện áp nguồn ($V_{DD}$):** Danh định $1.8\,\text{V}$, khảo sát biến thiên $\pm 10\%$ ($1.62\,\text{V} \rightarrow 1.98\,\text{V}$).
-* **Nhiệt độ ($T$):** Khảo sát từ $-40^\circ\text{C}$, $27^\circ\text{C}$ (danh định) đến $125^\circ\text{C}$.
+* **Supply Voltage ($V_{DD}$):** Nominal $1.8\,\text{V}$ with $\pm 10\%$ variation ($1.62\,\text{V}$ to $1.98\,\text{V}$).
+* **Temperature ($T$):** Swept across $-40^\circ\text{C}$, $27^\circ\text{C}$ (nominal), and $125^\circ\text{C}$.
 
-| Góc khảo sát (Corner) | $V_{DD}$ (V) | Nhiệt độ ($^\circ\text{C}$) | Static CMOS Delay (ps) | TGFA Delay (ps) | Static CMOS Power ($\mu\text{W}$) | TGFA Power ($\mu\text{W}$) |
+| PVT Corner | $V_{DD}$ (V) | Temp ($^\circ\text{C}$) | Static CMOS Delay (ps) | TGFA Delay (ps) | Static CMOS Power ($\mu\text{W}$) | TGFA Power ($\mu\text{W}$) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Typical (`tt`)** | `1.80` | `27` | `[...]` | `[...]` | `[...]` | `[...]` |
 | **Best Case (`ff`)** | `1.98` | `-40` | `[...]` | `[...]` | `[...]` | `[...]` |
@@ -76,41 +76,41 @@ Mạch được kiểm chứng độ tin cậy sau trích xuất ký sinh (Post-
 
 ---
 
-## 5. Tổng hợp so sánh hai kiến trúc (Post-Layout)
+## 5. Architecture Comparison Summary (Post-Layout)
 
-Bảng dưới đây tổng hợp các chỉ số hiệu năng tại điều kiện danh định (`tt`, $V_{DD} = 1.8\,\text{V}$, $T = 27^\circ\text{C}$):
+Performance metrics evaluated at nominal operating conditions (`tt`, $V_{DD} = 1.8\,\text{V}$, $T = 27^\circ\text{C}$):
 
-| Tiêu chí đánh giá | Static Complementary CMOS | Transmission-Gate (TGFA) | Nhận xét |
+| Evaluation Metric | Static Complementary CMOS | Transmission-Gate (TGFA) | Remarks |
 | :--- | :---: | :---: | :--- |
-| **Số lượng Transistor** | `[28 / 36]` T | `[...]` T | TGFA tiết kiệm diện tích linh kiện hơn |
-| **Diện tích Layout (Area)** | `[...]` $\mu\text{m}^2$ | `[...]` $\mu\text{m}^2$ | Kích thước $W \times H$ trên Magic VLSI |
-| **Worst-case Delay ($t_{pd}$)** | `[...]` ps | `[...]` ps | Đo từ ngõ vào tới `Sum` / `Cout` |
-| **Công suất trung bình ($P_{avg}$)** | `[...]` $\mu\text{W}$ | `[...]` $\mu\text{W}$ | Bao gồm công suất động và rò tĩnh |
+| **Transistor Count** | `[28 / 36]` T | `[...]` T | TGFA achieves lower device count |
+| **Layout Area** | `[...]` $\mu\text{m}^2$ | `[...]` $\mu\text{m}^2$ | Bounding box ($W \times H$) in Magic VLSI |
+| **Worst-Case Delay ($t_{pd}$)** | `[...]` ps | `[...]` ps | Measured from input to `Sum` / `Cout` |
+| **Average Power ($P_{avg}$)** | `[...]` $\mu\text{W}$ | `[...]` $\mu\text{W}$ | Dynamic switching + static leakage power |
 | **Power-Delay Product (PDP)** | `[...]` fJ | `[...]` fJ | $\text{PDP} = P_{avg} \times t_{pd}$ |
-| **Độ ổn định theo PVT** | Rất cao (Full-swing, khả năng phục hồi mức logic tốt) | Trung bình - Cao (Nhạy cảm hơn với điện dung tải khi mắc nối tiếp) | Static CMOS ít biến động trễ qua các corner hơn |
+| **PVT Robustness** | High (Full-swing restoration, strong drive) | Moderate-to-High (Sensitive to cascaded load capacitance) | Static CMOS exhibits tighter delay spread |
 
 ---
 
-## 6. Mở rộng: 4-bit Ripple Carry Adder (RCA)
+## 6. Extension: 4-Bit Ripple Carry Adder (RCA)
 
-Từ cell **1-bit Full Adder** đã tối ưu và đóng gói thành macro layout chuẩn, nhóm tiến hành ghép tầng 4 cell nối tiếp để xây dựng bộ cộng **4-bit Ripple Carry Adder**:
-* **Đường găng (Critical Path):** $A_0 / B_0 / C_{in} \rightarrow C_{out,0} \rightarrow C_{out,1} \rightarrow C_{out,2} \rightarrow C_{out,3}$ (hoặc $Sum_3$).
-* **Kết quả mô phỏng Critical Carry Path ($C_{in} \rightarrow C_{out,3}$):**
-  * Tổng trễ lan truyền đường carry (`tt`, $1.8\,\text{V}$, $27^\circ\text{C}$): `[...]` ps.
-  * Tần số hoạt động tối đa ước tính ($f_{max}$): `[...]` MHz.
-  * Tổng công suất tiêu thụ 4-bit RCA: `[...]` $\mu\text{W}$.
+Using the optimized 1-bit Full Adder macro cell, a **4-bit Ripple Carry Adder** is constructed by cascading four stages in series to evaluate multi-bit arithmetic performance:
+* **Critical Carry Path:** $A_0 / B_0 / C_{in} \rightarrow C_{out,0} \rightarrow C_{out,1} \rightarrow C_{out,2} \rightarrow C_{out,3}$ (or $Sum_3$).
+* **Post-Layout Simulation Results ($C_{in} \rightarrow C_{out,3}$ at `tt`, $1.8\,\text{V}$, $27^\circ\text{C}$):**
+  * Worst-case carry propagation delay: `[...]` ps.
+  * Estimated maximum operating frequency ($f_{max}$): `[...]` MHz.
+  * Total 4-bit RCA average power consumption: `[...]` $\mu\text{W}$.
 
 ---
 
-## 7. Hướng dẫn chạy mô phỏng
+## 7. How to Run Simulations
 
-1. Đảm bảo đã cài đặt `open_pdks` (SKY130) và thiết lập biến môi trường `PDK_ROOT`.
-2. Mở schematic bằng Xschem:
+1. Ensure `open_pdks` (SKY130) is installed and the `PDK_ROOT` environment variable is properly configured.
+2. Open the schematic in Xschem:
    ```bash
-   cd static_cmos/schematic   # hoặc transmission_gate/schematic
+   cd static_cmos/schematic   # or transmission_gate/schematic
    xschem fulladder.sch
    ```
-3. Chạy netlist và mô phỏng bằng `ngspice` từ thư mục `testbench/`:
+3. Generate the SPICE netlist and run `ngspice` from the `testbench/` directory:
    ```bash
    cd ../testbench
    ngspice fa_tb_delay.spice
