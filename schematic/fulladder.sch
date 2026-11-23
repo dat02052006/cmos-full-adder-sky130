@@ -198,7 +198,7 @@ model=nfet_01v8
 spiceprefix=X
 }
 C {opin.sym} 1900 -560 0 0 {name=p9 lab=Cout}
-C {gnd.sym} 1470 -460 0 0 {name=l2 lab=0}
+C {gnd.sym} 1470 -460 0 0 {name=l2 lab=GND}
 C {vdd.sym} 1470 -670 0 0 {name=l3 lab=VDD}
 C {sky130_fd_pr/pfet3_01v8.sym} 520 -1600 0 0 {name=M7
 W=1
@@ -322,8 +322,8 @@ spiceprefix=X
 }
 C {ipin.sym} 300 -1540 0 0 {name=p10 lab=A}
 C {ipin.sym} 300 -1200 0 0 {name=p11 lab=B}
-C {gnd.sym} 540 -1420 0 0 {name=l4 lab=0}
-C {gnd.sym} 540 -1100 0 0 {name=l5 lab=0}
+C {gnd.sym} 540 -1420 0 0 {name=l4 lab=GND}
+C {gnd.sym} 540 -1100 0 0 {name=l5 lab=GND}
 C {vdd.sym} 540 -1630 0 0 {name=l6 lab=VDD}
 C {vdd.sym} 540 -1310 0 0 {name=l7 lab=VDD}
 C {sky130_fd_pr/pfet3_01v8.sym} 1410 -1460 0 0 {name=M15
@@ -446,8 +446,8 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {gnd.sym} 1430 -1280 0 0 {name=l8 lab=0}
-C {gnd.sym} 1430 -960 0 0 {name=l9 lab=0}
+C {gnd.sym} 1430 -1280 0 0 {name=l8 lab=GND}
+C {gnd.sym} 1430 -960 0 0 {name=l9 lab=GND}
 C {vdd.sym} 1430 -1490 0 0 {name=l10 lab=VDD}
 C {vdd.sym} 1430 -1170 0 0 {name=l11 lab=VDD}
 C {ipin.sym} 300 -950 0 0 {name=p12 lab=Cin}
