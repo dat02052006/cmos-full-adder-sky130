@@ -35,12 +35,6 @@ N 140 -60 240 -60 {lab=Y}
 N 140 280 240 280 {lab=Y}
 N 240 -60 240 280 {lab=Y}
 N 240 80 380 80 {lab=Y}
-N -180 -160 -180 -150 {lab=VDD}
-N -180 -240 -180 -160 {lab=VDD}
-N -180 150 -180 170 {lab=VDD}
-N -330 150 -180 150 {lab=VDD}
-N -330 -230 -330 150 {lab=VDD}
-N -330 -230 -180 -230 {lab=VDD}
 N -20 420 110 420 {lab=A}
 N -20 -190 -20 420 {lab=A}
 C {sky130_fd_pr/pfet3_01v8.sym} -200 -120 0 0 {name=M1
@@ -163,9 +157,10 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {iopin.sym} -180 -240 0 0 {name=p4 lab=VDD}
 C {ipin.sym} -360 -60 0 0 {name=p1 lab=A}
 C {ipin.sym} -360 280 0 0 {name=p2 lab=B}
 C {opin.sym} 380 80 0 0 {name=p3 lab=Y}
 C {gnd.sym} -180 60 0 0 {name=l1 lab=0}
 C {gnd.sym} -180 380 0 0 {name=l2 lab=0}
+C {vdd.sym} -180 -150 0 0 {name=l3 lab=VDD}
+C {vdd.sym} -180 170 0 0 {name=l4 lab=VDD}

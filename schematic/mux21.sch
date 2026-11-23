@@ -32,7 +32,6 @@ N -80 50 -20 50 {lab=Y}
 N -200 300 -200 310 {lab=S}
 N -450 150 -450 160 {lab=0}
 N -450 160 -450 180 {lab=0}
-N -450 -70 -450 -60 {lab=VDD}
 C {sky130_fd_pr/pfet3_01v8.sym} -200 -200 3 1 {name=M1
 W=1
 L=0.15
@@ -128,4 +127,4 @@ spiceprefix=X
 C {ipin.sym} -590 40 0 0 {name=p3 lab=S}
 C {opin.sym} -20 50 0 0 {name=p4 lab=Y}
 C {gnd.sym} -450 180 0 0 {name=l1 lab=0}
-C {iopin.sym} -450 -70 3 0 {name=p5 lab=VDD}
+C {vdd.sym} -450 -60 0 0 {name=l2 lab=VDD}
