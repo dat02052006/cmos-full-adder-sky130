@@ -10,7 +10,6 @@ N 1690 -790 1690 -650 {lab=A}
 N 1750 -490 1750 -350 {lab=Cout}
 N 1690 -490 1690 -350 {lab=Cin}
 N 1580 -730 1690 -730 {lab=A}
-N 1580 -420 1690 -420 {lab=Cin}
 N 1470 -610 1470 -600 {lab=#net1}
 N 1470 -600 1470 -520 {lab=#net1}
 N 1390 -640 1430 -640 {lab=#net2}
@@ -97,16 +96,17 @@ N 1260 -1400 1330 -1400 {lab=#net2}
 N 1330 -1400 1390 -1400 {lab=#net2}
 N 370 -950 1250 -950 {lab=Cin}
 N 1250 -1060 1250 -950 {lab=Cin}
-N 450 -730 1580 -730 {lab=A}
 N 450 -1540 450 -730 {lab=A}
-N 540 -420 1580 -420 {lab=Cin}
-N 540 -950 540 -420 {lab=Cin}
 N 1130 -1400 1130 -570 {lab=#net2}
 N 1130 -570 1350 -570 {lab=#net2}
 N 1350 -570 1390 -570 {lab=#net2}
 N 300 -1540 360 -1540 {lab=A}
 N 300 -1200 360 -1200 {lab=B}
 N 300 -950 370 -950 {lab=Cin}
+N 670 -420 1590 -420 {lab=Cin}
+N 1590 -420 1690 -420 {lab=Cin}
+N 450 -730 1580 -730 {lab=A}
+N 670 -950 670 -420 {lab=Cin}
 C {sky130_fd_pr/pfet3_01v8.sym} 1720 -810 3 1 {name=M1
 W=1
 L=0.15
@@ -452,5 +452,5 @@ C {vdd.sym} 1430 -1490 0 0 {name=l10 lab=VDD}
 C {vdd.sym} 1430 -1170 0 0 {name=l11 lab=VDD}
 C {ipin.sym} 300 -950 0 0 {name=p12 lab=Cin}
 C {opin.sym} 1990 -1260 0 0 {name=p6 lab=Sum}
-C {ipin.sym} 540 -1630 0 0 {name=p1 lab=VDD}
-C {ipin.sym} 540 -1420 0 0 {name=p2 lab=GND}
+C {ipin.sym} 1470 -670 0 0 {name=p1 lab=VDD}
+C {ipin.sym} 1470 -460 0 0 {name=p2 lab=GND}
