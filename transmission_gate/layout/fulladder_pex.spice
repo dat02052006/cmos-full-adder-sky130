@@ -1,0 +1,94 @@
+* NGSPICE file created from fulladder.ext - technology: sky130A
+
+.subckt fulladder A Sum B Cin VDD Cout GND
+X0 a_566_n850# a_170_n850# VDD VDD sky130_fd_pr__pfet_01v8 ad=0.60217 pd=3.52 as=0.34317 ps=3.12 w=1.295 l=0.15
+X1 Cin a_170_n850# Sum VDD sky130_fd_pr__pfet_01v8 ad=0.4403 pd=1.975 as=0.4403 ps=1.975 w=1.295 l=0.15
+X2 GND A a_n209_n850# GND sky130_fd_pr__nfet_01v8 ad=0.0915 pd=0.91 as=0.28365 ps=2.15 w=0.61 l=0.15
+X3 Cout a_170_n850# Cin GND sky130_fd_pr__nfet_01v8 ad=0.1428 pd=1.1 as=0.1428 ps=1.1 w=0.42 l=0.15
+X4 VDD a_170_n850# a_713_n850# VDD sky130_fd_pr__pfet_01v8 ad=0.19425 pd=1.595 as=0.60217 ps=3.52 w=1.295 l=0.15
+X5 A a_170_n850# Cout VDD sky130_fd_pr__pfet_01v8 ad=0.60217 pd=3.52 as=0.4403 ps=1.975 w=1.295 l=0.15
+X6 a_170_n850# a_n209_n850# a_4_n850# VDD sky130_fd_pr__pfet_01v8 ad=0.6409 pd=2.565 as=0.6409 ps=2.565 w=1.885 l=0.15
+X7 Sum a_170_n850# a_926_n850# GND sky130_fd_pr__nfet_01v8 ad=0.1428 pd=1.1 as=0.1428 ps=1.1 w=0.42 l=0.15
+X8 B A a_170_n850# VDD sky130_fd_pr__pfet_01v8 ad=0.87652 pd=4.7 as=0.6409 ps=2.565 w=1.885 l=0.15
+X9 a_566_n850# a_170_n850# GND GND sky130_fd_pr__nfet_01v8 ad=0.1953 pd=1.77 as=0.1113 ps=1.37 w=0.42 l=0.15
+X10 Cin a_713_n850# Sum GND sky130_fd_pr__nfet_01v8 ad=0.1428 pd=1.1 as=0.1428 ps=1.1 w=0.42 l=0.15
+X11 a_4_n850# B VDD VDD sky130_fd_pr__pfet_01v8 ad=0.6409 pd=2.565 as=0.28275 ps=2.185 w=1.885 l=0.15
+X12 a_926_n850# Cin VDD VDD sky130_fd_pr__pfet_01v8 ad=0.4403 pd=1.975 as=0.19425 ps=1.595 w=1.295 l=0.15
+X13 GND a_170_n850# a_713_n850# GND sky130_fd_pr__nfet_01v8 ad=0.063 pd=0.72 as=0.1953 ps=1.77 w=0.42 l=0.15
+X14 A a_566_n850# Cout GND sky130_fd_pr__nfet_01v8 ad=0.1953 pd=1.77 as=0.1428 ps=1.1 w=0.42 l=0.15
+X15 a_170_n850# A a_4_n850# GND sky130_fd_pr__nfet_01v8 ad=0.2074 pd=1.29 as=0.2074 ps=1.29 w=0.61 l=0.15
+X16 VDD A a_n209_n850# VDD sky130_fd_pr__pfet_01v8 ad=0.28275 pd=2.185 as=0.87652 ps=4.7 w=1.885 l=0.15
+X17 Cout a_566_n850# Cin VDD sky130_fd_pr__pfet_01v8 ad=0.4403 pd=1.975 as=0.4403 ps=1.975 w=1.295 l=0.15
+X18 B a_n209_n850# a_170_n850# GND sky130_fd_pr__nfet_01v8 ad=0.28365 pd=2.15 as=0.2074 ps=1.29 w=0.61 l=0.15
+X19 Sum a_713_n850# a_926_n850# VDD sky130_fd_pr__pfet_01v8 ad=0.4403 pd=1.975 as=0.4403 ps=1.975 w=1.295 l=0.15
+X20 a_4_n850# B GND GND sky130_fd_pr__nfet_01v8 ad=0.2074 pd=1.29 as=0.0915 ps=0.91 w=0.61 l=0.15
+X21 a_926_n850# Cin GND GND sky130_fd_pr__nfet_01v8 ad=0.1428 pd=1.1 as=0.063 ps=0.72 w=0.42 l=0.15
+C0 a_566_n850# a_713_n850# 0.37537f
+C1 a_566_n850# A 0.32364f
+C2 Cin Sum 0.1898f
+C3 a_566_n850# Cout 0.10603f
+C4 a_926_n850# Sum 0.15465f
+C5 a_713_n850# A 0.0279f
+C6 B VDD 0.2616f
+C7 a_713_n850# Cout 0.00187f
+C8 a_170_n850# Sum 0.13206f
+C9 B a_n209_n850# 0.15237f
+C10 Cout A 0.18875f
+C11 B a_4_n850# 0.10045f
+C12 a_566_n850# VDD 0.15291f
+C13 a_566_n850# a_n209_n850# 0.00137f
+C14 Cin B 0.00519f
+C15 a_926_n850# B 0
+C16 a_566_n850# a_4_n850# 0
+C17 a_713_n850# VDD 0.15975f
+C18 VDD A 0.14552f
+C19 a_713_n850# a_n209_n850# 0.00674f
+C20 a_170_n850# B 0.30878f
+C21 a_n209_n850# A 0.24237f
+C22 a_713_n850# a_4_n850# 0
+C23 a_566_n850# Cin 0.11268f
+C24 Cout VDD 0.02868f
+C25 a_926_n850# a_566_n850# 0.02527f
+C26 a_4_n850# A 0.08345f
+C27 a_n209_n850# Cout 0
+C28 Cin a_713_n850# 0.1497f
+C29 a_926_n850# a_713_n850# 0.14832f
+C30 a_170_n850# a_566_n850# 0.21829f
+C31 Cin A 0.0292f
+C32 a_926_n850# A 0.02596f
+C33 Cin Cout 0.15795f
+C34 a_170_n850# a_713_n850# 0.27792f
+C35 a_170_n850# A 0.48695f
+C36 a_n209_n850# VDD 0.20945f
+C37 a_4_n850# VDD 0.16833f
+C38 a_170_n850# Cout 0.11643f
+C39 a_4_n850# a_n209_n850# 0.16127f
+C40 B Sum 0
+C41 Cin VDD 0.11058f
+C42 a_926_n850# VDD 0.10028f
+C43 Cin a_n209_n850# 0
+C44 a_926_n850# a_n209_n850# 0
+C45 Cin a_4_n850# 0
+C46 a_170_n850# VDD 0.28486f
+C47 a_566_n850# Sum 0.02949f
+C48 a_170_n850# a_n209_n850# 0.15921f
+C49 a_926_n850# Cin 0.09163f
+C50 a_170_n850# a_4_n850# 0.19829f
+C51 a_713_n850# Sum 0.10552f
+C52 Sum A 0.02504f
+C53 a_170_n850# Cin 0.34768f
+C54 a_926_n850# a_170_n850# 0.07883f
+C55 a_566_n850# B 0.06251f
+C56 B a_713_n850# 0.00289f
+C57 B A 0.24236f
+C58 Sum VDD 0.02944f
+C59 a_n209_n850# Sum 0
+C60 B Cout 0
+C61 Cout GND 0.80393f
+C62 Sum GND 0.67293f
+C63 VDD GND 5.4221f
+C64 a_926_n850# GND 0.78235f
+C65 a_170_n850# GND 0.36168f
+C66 a_4_n850# GND 1.3564f
+.ends
+

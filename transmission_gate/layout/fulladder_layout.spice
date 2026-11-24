@@ -1,0 +1,27 @@
+* NGSPICE file created from fulladder.ext - technology: sky130A
+
+.subckt fulladder Cin A B Sum Cout GND VDD
+X0 a_566_n850# a_170_n850# VDD VDD sky130_fd_pr__pfet_01v8 ad=0.60217 pd=3.52 as=0.34317 ps=3.12 w=1.295 l=0.15
+X1 Cin a_170_n850# Sum VDD sky130_fd_pr__pfet_01v8 ad=0.4403 pd=1.975 as=0.4403 ps=1.975 w=1.295 l=0.15
+X2 GND A a_n209_n850# GND sky130_fd_pr__nfet_01v8 ad=0.0915 pd=0.91 as=0.28365 ps=2.15 w=0.61 l=0.15
+X3 Cout a_170_n850# Cin GND sky130_fd_pr__nfet_01v8 ad=0.1428 pd=1.1 as=0.1428 ps=1.1 w=0.42 l=0.15
+X4 VDD a_170_n850# a_713_n850# VDD sky130_fd_pr__pfet_01v8 ad=0.19425 pd=1.595 as=0.60217 ps=3.52 w=1.295 l=0.15
+X5 A a_170_n850# Cout VDD sky130_fd_pr__pfet_01v8 ad=0.60217 pd=3.52 as=0.4403 ps=1.975 w=1.295 l=0.15
+X6 a_170_n850# a_n209_n850# a_4_n850# VDD sky130_fd_pr__pfet_01v8 ad=0.6409 pd=2.565 as=0.6409 ps=2.565 w=1.885 l=0.15
+X7 Sum a_170_n850# a_926_n850# GND sky130_fd_pr__nfet_01v8 ad=0.1428 pd=1.1 as=0.1428 ps=1.1 w=0.42 l=0.15
+X8 B A a_170_n850# VDD sky130_fd_pr__pfet_01v8 ad=0.87652 pd=4.7 as=0.6409 ps=2.565 w=1.885 l=0.15
+X9 a_566_n850# a_170_n850# GND GND sky130_fd_pr__nfet_01v8 ad=0.1953 pd=1.77 as=0.1113 ps=1.37 w=0.42 l=0.15
+X10 Cin a_713_n850# Sum GND sky130_fd_pr__nfet_01v8 ad=0.1428 pd=1.1 as=0.1428 ps=1.1 w=0.42 l=0.15
+X11 a_4_n850# B VDD VDD sky130_fd_pr__pfet_01v8 ad=0.6409 pd=2.565 as=0.28275 ps=2.185 w=1.885 l=0.15
+X12 a_926_n850# Cin VDD VDD sky130_fd_pr__pfet_01v8 ad=0.4403 pd=1.975 as=0.19425 ps=1.595 w=1.295 l=0.15
+X13 GND a_170_n850# a_713_n850# GND sky130_fd_pr__nfet_01v8 ad=0.063 pd=0.72 as=0.1953 ps=1.77 w=0.42 l=0.15
+X14 A a_566_n850# Cout GND sky130_fd_pr__nfet_01v8 ad=0.1953 pd=1.77 as=0.1428 ps=1.1 w=0.42 l=0.15
+X15 a_170_n850# A a_4_n850# GND sky130_fd_pr__nfet_01v8 ad=0.2074 pd=1.29 as=0.2074 ps=1.29 w=0.61 l=0.15
+X16 VDD A a_n209_n850# VDD sky130_fd_pr__pfet_01v8 ad=0.28275 pd=2.185 as=0.87652 ps=4.7 w=1.885 l=0.15
+X17 Cout a_566_n850# Cin VDD sky130_fd_pr__pfet_01v8 ad=0.4403 pd=1.975 as=0.4403 ps=1.975 w=1.295 l=0.15
+X18 B a_n209_n850# a_170_n850# GND sky130_fd_pr__nfet_01v8 ad=0.28365 pd=2.15 as=0.2074 ps=1.29 w=0.61 l=0.15
+X19 Sum a_713_n850# a_926_n850# VDD sky130_fd_pr__pfet_01v8 ad=0.4403 pd=1.975 as=0.4403 ps=1.975 w=1.295 l=0.15
+X20 a_4_n850# B GND GND sky130_fd_pr__nfet_01v8 ad=0.2074 pd=1.29 as=0.0915 ps=0.91 w=0.61 l=0.15
+X21 a_926_n850# Cin GND GND sky130_fd_pr__nfet_01v8 ad=0.1428 pd=1.1 as=0.063 ps=0.72 w=0.42 l=0.15
+.ends
+

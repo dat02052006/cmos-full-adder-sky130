@@ -1,0 +1,35 @@
+
+Circuit 1 cell sky130_fd_pr__pfet_01v8 and Circuit 2 cell sky130_fd_pr__pfet_01v8 are black boxes.
+Equate elements:  no current cell.
+Device classes sky130_fd_pr__pfet_01v8 and sky130_fd_pr__pfet_01v8 are equivalent.
+
+Circuit 1 cell sky130_fd_pr__nfet_01v8 and Circuit 2 cell sky130_fd_pr__nfet_01v8 are black boxes.
+Equate elements:  no current cell.
+Device classes sky130_fd_pr__nfet_01v8 and sky130_fd_pr__nfet_01v8 are equivalent.
+
+Subcircuit summary:
+Circuit 1: fulladder                       |Circuit 2: fulladder                       
+-------------------------------------------|-------------------------------------------
+sky130_fd_pr__pfet_01v8 (11)               |sky130_fd_pr__pfet_01v8 (11)               
+sky130_fd_pr__nfet_01v8 (11)               |sky130_fd_pr__nfet_01v8 (11)               
+Number of devices: 22                      |Number of devices: 22                      
+Number of nets: 13                         |Number of nets: 13                         
+---------------------------------------------------------------------------------------
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: fulladder                       |Circuit 2: fulladder                       
+-------------------------------------------|-------------------------------------------
+A                                          |A                                          
+Cin                                        |Cin                                        
+VDD                                        |VDD                                        
+GND                                        |GND                                        
+Cout                                       |Cout                                       
+B                                          |B                                          
+Sum                                        |Sum                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes fulladder and fulladder are equivalent.
+
+Final result: Circuits match uniquely.
+.

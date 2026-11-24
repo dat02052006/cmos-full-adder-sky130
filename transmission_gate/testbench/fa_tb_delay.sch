@@ -48,8 +48,9 @@ C {opin.sym} 1060 -1780 0 0 {name=p6 lab=Sum}
 C {vsource.sym} 460 -1750 0 0 {name=VA value=1.8
 savecurrent=false}
 C {gnd.sym} 460 -1720 0 0 {name=l1 lab=GND}
-C {code_shown.sym} 1040 -2230 0 0 {name=sim only_toplevel=false value="
+C {code_shown.sym} 1040 -2230 0 0 {name="sim" only_toplevel=false value="
 .lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.include /home/dat02/projects/cmos-full-adder-sky130/transmission_gate/layout/fulladder_pex.spice
 .control
 tran 0.1p 20n
 meas tran tpdr trig v(b) val=0.9 rise=2 targ v(sum) val=0.9 rise=2
@@ -64,7 +65,7 @@ C {vsource.sym} 350 -1670 0 0 {name=V1 value=1.8
  savecurrent=false}
 C {vdd.sym} 350 -1700 0 0 {name=l13 lab=VDD}
 C {sky130_fd_pr/pfet3_01v8.sym} 1230 -1860 0 0 {name=M23
-W=2.36
+W=1.885
 L=0.15
 body=VDD
 nf=1
@@ -79,7 +80,7 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet3_01v8.sym} 1230 -1710 0 0 {name=M24
-W=0.765
+W=0.61
 L=0.15
 body=GND
 nf=1
@@ -96,7 +97,7 @@ spiceprefix=X
 C {gnd.sym} 1250 -1680 0 0 {name=l15 lab=GND}
 C {vdd.sym} 1250 -1890 0 0 {name=l16 lab=VDD}
 C {sky130_fd_pr/pfet3_01v8.sym} 1670 -1860 0 0 {name=M25
-W=2.36
+W=1.885
 L=0.15
 body=VDD
 nf=1
@@ -111,7 +112,7 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet3_01v8.sym} 1670 -1710 0 0 {name=M26
-W=0.765
+W=0.61
 L=0.15
 body=GND
 nf=1
@@ -129,10 +130,9 @@ C {gnd.sym} 1690 -1680 0 0 {name=l17 lab=GND}
 C {vdd.sym} 1690 -1890 0 0 {name=l18 lab=VDD}
 C {vsource.sym} 600 -1650 0 0 {name=VCin value=1.8 
  savecurrent=false}
-C {/home/dat02/projects/cmos-full-adder-sky130/schematic/fulladder.sym} 780 -1740 0 0 {name=x1}
 C {gnd.sym} 350 -1580 0 0 {name=l2 lab=0}
 C {sky130_fd_pr/pfet3_01v8.sym} 1230 -1590 0 0 {name=M1
-W=2.36
+W=1.885
 L=0.15
 body=VDD
 nf=1
@@ -147,7 +147,7 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet3_01v8.sym} 1230 -1440 0 0 {name=M2
-W=0.765
+W=0.61
 L=0.15
 body=GND
 nf=1
@@ -164,7 +164,7 @@ spiceprefix=X
 C {gnd.sym} 1250 -1410 0 0 {name=l3 lab=GND}
 C {vdd.sym} 1250 -1620 0 0 {name=l4 lab=VDD}
 C {sky130_fd_pr/pfet3_01v8.sym} 1670 -1590 0 0 {name=M3
-W=2.36
+W=1.885
 L=0.15
 body=VDD
 nf=1
@@ -179,7 +179,7 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet3_01v8.sym} 1670 -1440 0 0 {name=M4
-W=0.765
+W=0.61
 L=0.15
 body=GND
 nf=1
@@ -195,3 +195,4 @@ spiceprefix=X
 }
 C {gnd.sym} 1690 -1410 0 0 {name=l5 lab=GND}
 C {vdd.sym} 1690 -1620 0 0 {name=l6 lab=VDD}
+C {/home/dat02/projects/cmos-full-adder-sky130/transmission_gate/schematic/fulladder.sym} 780 -1740 0 0 {name=x2}
