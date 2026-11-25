@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <report-database>
  <description>SKY130 DRC runset</description>
- <original-file>/home/dat02/projects/cmos-full-adder-sky130/transmission_gate/layout/fulladder.gds</original-file>
+ <original-file>/home/dat02/projects/cmos-full-adder-sky130/transmission_gate/layout/fulladder_4bit.gds</original-file>
  <generator>drc: script='/usr/local/share/pdk/sky130A/libs.tech/klayout/macros/run_drc_full.lydrc'</generator>
  <top-cell>TOP</top-cell>
  <tags>
