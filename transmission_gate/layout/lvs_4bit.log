@@ -1,0 +1,45 @@
+
+Circuit 1 cell sky130_fd_pr__pfet_01v8 and Circuit 2 cell sky130_fd_pr__pfet_01v8 are black boxes.
+Equate elements:  no current cell.
+Device classes sky130_fd_pr__pfet_01v8 and sky130_fd_pr__pfet_01v8 are equivalent.
+
+Circuit 1 cell sky130_fd_pr__nfet_01v8 and Circuit 2 cell sky130_fd_pr__nfet_01v8 are black boxes.
+Equate elements:  no current cell.
+Device classes sky130_fd_pr__nfet_01v8 and sky130_fd_pr__nfet_01v8 are equivalent.
+Flattening unmatched subcell fulladder in circuit fulladder_4bit (1)(4 instances)
+
+Subcircuit summary:
+Circuit 1: fulladder_4bit                  |Circuit 2: fulladder_4bit                  
+-------------------------------------------|-------------------------------------------
+sky130_fd_pr__pfet_01v8 (44)               |sky130_fd_pr__pfet_01v8 (44)               
+sky130_fd_pr__nfet_01v8 (44)               |sky130_fd_pr__nfet_01v8 (44)               
+Number of devices: 88                      |Number of devices: 88                      
+Number of nets: 43                         |Number of nets: 43                         
+---------------------------------------------------------------------------------------
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: fulladder_4bit                  |Circuit 2: fulladder_4bit                  
+-------------------------------------------|-------------------------------------------
+Cin                                        |Cin                                        
+A1                                         |A1                                         
+A0                                         |A0                                         
+A2                                         |A2                                         
+A3                                         |A3                                         
+VDD                                        |VDD                                        
+GND                                        |GND                                        
+Sum0                                       |Sum0                                       
+Sum2                                       |Sum2                                       
+Sum3                                       |Sum3                                       
+Sum1                                       |Sum1                                       
+B0                                         |B0                                         
+B3                                         |B3                                         
+B1                                         |B1                                         
+B2                                         |B2                                         
+Cout                                       |Cout                                       
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes fulladder_4bit and fulladder_4bit are equivalent.
+
+Final result: Circuits match uniquely.
+.
