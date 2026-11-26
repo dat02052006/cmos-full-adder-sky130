@@ -49,6 +49,5 @@ C {opin.sym} 720 -410 0 0 {name=p2 lab=Sum
 C {lab_pin.sym} 210 -370 0 0 {name=p3 sig_type=std_logic lab=A}
 C {lab_pin.sym} 260 -350 0 0 {name=p4 sig_type=std_logic lab=B}
 C {lab_pin.sym} 300 -330 0 0 {name=p5 sig_type=std_logic lab=Cin}
-C {/home/dat02/projects/cmos-full-adder-sky130/schematic/fulladder.sym} 520 -370 0 0 {name=x1
-}
 C {lab_pin.sym} 100 -410 0 0 {name=p6 sig_type=std_logic lab=VDD}
+C {/home/dat02/projects/cmos-full-adder-sky130/static_cmos/schematic/fulladder.sym} 520 -370 0 0 {name=x1}
