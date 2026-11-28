@@ -55,4 +55,4 @@ run
 plot v(cin), v(a)-2, v(b)-4, v(sum)-6, v(cout)-8
 .endc
 "}
-C {/home/dat02/projects/cmos-full-adder-sky130/schematic/fulladder.sym} 750 -560 0 0 {name=x1}
+C {/home/dat02/projects/cmos-full-adder-sky130/transmission_gate/schematic/fulladder.sym} 750 -560 0 0 {name=x1}

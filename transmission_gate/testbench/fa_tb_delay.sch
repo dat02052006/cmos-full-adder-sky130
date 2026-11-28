@@ -50,7 +50,7 @@ savecurrent=false}
 C {gnd.sym} 460 -1720 0 0 {name=l1 lab=GND}
 C {code_shown.sym} 1040 -2230 0 0 {name="sim" only_toplevel=false value="
 .lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
-.include /home/dat02/projects/cmos-full-adder-sky130/transmission_gate/layout/fulladder_pex.spice
+
 .control
 tran 0.1p 20n
 meas tran tpdr trig v(b) val=0.9 rise=2 targ v(sum) val=0.9 rise=2
